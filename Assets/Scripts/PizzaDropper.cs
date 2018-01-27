@@ -6,6 +6,7 @@ public class PizzaDropper : MonoBehaviour {
 
   public GameObject Crosshair;
   public GameObject Pizza;
+  public Collider Map;
 
   private bool Tracking = true;
   private float TimeToTarget;
@@ -36,7 +37,21 @@ public class PizzaDropper : MonoBehaviour {
   }
 
   private Vector3 GetCrosshairPosition() {
-    return new Vector3(transform.position.x + GetXDisplacement(), HeightOffset, transform.position.z + GetZDisplacement());
+    float xPos = transform.position.x + GetXDisplacement();
+    float zPos = transform.position.z + GetZDisplacement();
+    HeightOffset = GetHeightOffset(xPos, zPos);
+
+    return new Vector3(xPos, HeightOffset, zPos);
+  }
+
+  private float GetHeightOffset(float xPos, float zPos) {
+    Vector3 origin = new Vector3(xPos, transform.position.y, zPos);
+    Ray ray = new Ray(origin, Vector3.down);
+    RaycastHit hit;
+    if (Map.Raycast(ray, out hit, 100f)) {
+      return hit.point.y + 5;
+    }
+    return 0;
   }
 
   private float GetXDisplacement() {
