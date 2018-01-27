@@ -5,17 +5,33 @@ using UnityEngine;
 public class PizzaDropper : MonoBehaviour {
 
   public GameObject Crosshair;
+  public GameObject Pizza;
+
+  private bool Tracking = true;
   private float TimeToTarget;
   private float Gravity = Mathf.Abs(Physics.gravity.y);
   private Rigidbody Body;
+  private GameObject CrosshairInstance;
+  private GameObject PizzaInstance;
 
   void Start() {
     Body = GetComponent<Rigidbody>();
-    Crosshair = GameObject.Instantiate(Crosshair);
+    CrosshairInstance = GameObject.Instantiate(Crosshair);
+  }
+
+  void Update() {
+    if (Input.GetButtonDown("DropBomb") && Tracking) {
+      Tracking = false;
+      PizzaInstance = GameObject.Instantiate(Pizza);
+      PizzaInstance.transform.position = transform.position;
+      PizzaInstance.GetComponent<Rigidbody>().velocity = new Vector3(Body.velocity.x, 0, Body.velocity.z);
+    }
   }
 
   void LateUpdate() {
-    Crosshair.transform.position = GetCrosshairPosition();
+    if (Tracking) {
+      CrosshairInstance.transform.position = GetCrosshairPosition();
+    }
   }
 
   private Vector3 GetCrosshairPosition() {
@@ -31,7 +47,7 @@ public class PizzaDropper : MonoBehaviour {
   }
 
   private float GetTimeToTarget() {
-    return Mathf.Sqrt((2 * transform.position.y) / Gravity);
+    return Mathf.Sqrt((2 * (transform.position.y - 15)) / Gravity);
   }
 
 }
