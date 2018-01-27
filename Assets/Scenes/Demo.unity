@@ -291,6 +291,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4b56fbd569341d889f0ecef28cdfb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeLeft: 5
+  PigeonTimer: {fileID: 1307205065}
+  PersonTimer: {fileID: 698490200}
+  NextLevel: GameOver
 --- !u!4 &557468306
 Transform:
   m_ObjectHideFlags: 0
@@ -421,7 +425,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 480, y: 440}
-  m_SizeDelta: {x: 300, y: 200}
+  m_SizeDelta: {x: 700, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &698490200
 MonoBehaviour:
@@ -596,7 +600,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -480, y: 440}
-  m_SizeDelta: {x: 300, y: 200}
+  m_SizeDelta: {x: 700, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1307205065
 MonoBehaviour:
