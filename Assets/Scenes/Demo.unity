@@ -189,7 +189,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 481518390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 30, z: 0}
+  m_LocalPosition: {x: 0, y: 45, z: 0}
   m_LocalScale: {x: 2, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Crosshair: {fileID: 1131747298311492, guid: ff9cc57f105e54daa9797aaa78706850, type: 2}
-  Pizza: {fileID: 1775284594077444, guid: adfedf10d5dff4790a60903f201dae04, type: 2}
+  Pizza: {fileID: 1537158128935188, guid: adfedf10d5dff4790a60903f201dae04, type: 2}
 --- !u!1 &697437360
 GameObject:
   m_ObjectHideFlags: 0
