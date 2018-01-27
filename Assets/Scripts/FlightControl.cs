@@ -21,7 +21,7 @@ public class FlightControl : MonoBehaviour {
   }
 
   void LateUpdate() {
-    Quaternion desiredRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+    Quaternion desiredRotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
     transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime);
   }
 
