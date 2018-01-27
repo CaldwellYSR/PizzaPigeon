@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class FlightControl : MonoBehaviour {
 
-  [Range(1, 6)]
+  [Range(1f, 6f)]
   public float Speed;
 
-  [Range(10, 100)]
+  [Range(0.5f, 2f)]
+  public float TurnSpeed;
+
+  [Range(10f, 100f)]
   public float MaxSpeed;
 
   private Rigidbody Body;
@@ -15,11 +18,19 @@ public class FlightControl : MonoBehaviour {
 
   void Start() {
     Body = GetComponent<Rigidbody>();
-    Direction = transform.forward;
+  }
+
+  void LateUpdate() {
+    Quaternion desiredRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+    transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime);
   }
 
 	void FixedUpdate () {
-    Body.AddForce(Direction * Speed);
+
+    Body.AddTorque(transform.up * Input.GetAxis("Horizontal") * TurnSpeed);
+    Body.AddTorque(transform.right * Input.GetAxis("Vertical") * TurnSpeed);
+
+    Body.AddForce(transform.forward * Speed);
 
     if (Body.velocity.magnitude >= MaxSpeed) {
       Body.velocity = Body.velocity.normalized * MaxSpeed;
