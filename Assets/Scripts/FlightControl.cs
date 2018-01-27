@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlightControl : MonoBehaviour {
 
-  [Range(1f, 6f)]
+  [Range(4f, 12f)]
   public float Speed;
 
   [Range(0.5f, 2f)]
