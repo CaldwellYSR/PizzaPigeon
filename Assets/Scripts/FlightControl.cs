@@ -20,17 +20,15 @@ public class FlightControl : MonoBehaviour {
     Body = GetComponent<Rigidbody>();
   }
 
-  void LateUpdate() {
-    Quaternion desiredRotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
-    transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime);
-  }
-
 	void FixedUpdate () {
 
     Body.AddTorque(transform.up * Input.GetAxis("Horizontal") * TurnSpeed);
     Body.AddTorque(transform.right * Input.GetAxis("Vertical") * TurnSpeed);
 
     Body.AddForce(transform.forward * Speed);
+
+    Quaternion desiredRotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+    transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime);
 
     if (Body.velocity.magnitude >= MaxSpeed) {
       Body.velocity = Body.velocity.normalized * MaxSpeed;

@@ -8,7 +8,6 @@ public class PizzaDropper : MonoBehaviour {
   public GameObject Pizza;
   public Collider Map;
 
-  private bool Tracking = true;
   private float TimeToTarget;
   private float Gravity = Mathf.Abs(Physics.gravity.y);
   private float HeightOffset = 10f;
@@ -22,8 +21,7 @@ public class PizzaDropper : MonoBehaviour {
   }
 
   void Update() {
-    if (Input.GetButtonDown("DropBomb") && Tracking) {
-      Tracking = false;
+    if (Input.GetButtonDown("DropBomb")) {
       PizzaInstance = GameObject.Instantiate(Pizza);
       PizzaInstance.transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
       PizzaInstance.GetComponent<Rigidbody>().velocity = new Vector3(Body.velocity.x, 0, Body.velocity.z);
@@ -31,9 +29,7 @@ public class PizzaDropper : MonoBehaviour {
   }
 
   void LateUpdate() {
-    if (Tracking) {
-      CrosshairInstance.transform.position = GetCrosshairPosition();
-    }
+    CrosshairInstance.transform.position = GetCrosshairPosition();
   }
 
   private Vector3 GetCrosshairPosition() {
@@ -49,7 +45,7 @@ public class PizzaDropper : MonoBehaviour {
     Ray ray = new Ray(origin, Vector3.down);
     RaycastHit hit;
     if (Map.Raycast(ray, out hit, 100f)) {
-      return hit.point.y + 5;
+      return hit.point.y + 0.5f;
     }
     return 0;
   }
