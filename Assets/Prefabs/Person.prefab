@@ -21,12 +21,11 @@ GameObject:
   - component: {fileID: 4601841596991856}
   - component: {fileID: 212405459946591554}
   - component: {fileID: 114724284793448748}
-  - component: {fileID: 114910683985897422}
   - component: {fileID: 65517733045981844}
   - component: {fileID: 114350306953373776}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Person
-  m_TagString: Untagged
+  m_TagString: Person
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,8 +36,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1233192690805100}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.38, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -90,25 +89,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 377aa6169b0ad4c3a9247fa4b4ae01b4, type: 3}
   - {fileID: 21300000, guid: 41734be6ef3d241c3915a3b51905c24e, type: 3}
   - {fileID: 21300000, guid: ba581de7bad0e4daa872e97a6f2980f8, type: 3}
---- !u!114 &114910683985897422
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1233192690805100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8921c41118524d0f8700fb68cb165f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axes: 0
-  sensitivityX: 10
-  sensitivityY: 10
-  minimumX: -360
-  maximumX: 360
-  minimumY: -60
-  maximumY: 60
-  frameCounter: 20
 --- !u!212 &212405459946591554
 SpriteRenderer:
   m_ObjectHideFlags: 1

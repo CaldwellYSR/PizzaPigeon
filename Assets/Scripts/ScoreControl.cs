@@ -10,8 +10,9 @@ public class ScoreControl : MonoBehaviour {
 
 	public void DecrementScore(){
 		PlayerScore += WrongPizza;
-		Debug.Log ("Decremented: " + PlayerScore);
 	}
 
-
+  public void IncrementScore() {
+		PlayerScore += CorrectPizza;
+  }
 }

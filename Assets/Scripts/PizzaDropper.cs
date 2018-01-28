@@ -10,7 +10,6 @@ public class PizzaDropper : MonoBehaviour {
   public bool PizzaReady = true;
   public ScoreControl ScoreManager;
 
-
   private float TimeToTarget;
   private float Gravity = Mathf.Abs(Physics.gravity.y);
   private float HeightOffset = 10f;
