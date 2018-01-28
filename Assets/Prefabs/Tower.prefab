@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4254913815905460}
   - component: {fileID: 33281051803725822}
   - component: {fileID: 23196118908155884}
+  - component: {fileID: 64848295006043120}
   m_Layer: 0
   m_Name: Tower
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,4 +80,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1474413984834286}
+  m_Mesh: {fileID: 4300000, guid: 0d62bee684ad44d459f49e8f074598b1, type: 3}
+--- !u!64 &64848295006043120
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1474413984834286}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 0d62bee684ad44d459f49e8f074598b1, type: 3}

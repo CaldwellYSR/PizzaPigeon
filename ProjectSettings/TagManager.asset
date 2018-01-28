@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pizza
   - Person
+  - Building
   layers:
   - Default
   - TransparentFX

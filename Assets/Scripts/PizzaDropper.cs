@@ -6,7 +6,6 @@ public class PizzaDropper : MonoBehaviour {
 
   public GameObject Crosshair;
   public GameObject Pizza;
-  public Collider Map;
   public bool PizzaReady = true;
   public ScoreControl ScoreManager;
 
@@ -16,10 +15,15 @@ public class PizzaDropper : MonoBehaviour {
   private Rigidbody Body;
   private GameObject CrosshairInstance;
   private GameObject PizzaInstance;
+  private List<Collider> Map = new List<Collider>();
 
   void Start() {
     Body = GetComponent<Rigidbody>();
     CrosshairInstance = GameObject.Instantiate(Crosshair);
+    GameObject[] buildings = GameObject.FindGameObjectsWithTag("Building");
+    foreach (var building in buildings) {
+      Map.Add(building.GetComponent<Collider>());
+    }
   }
 
   void Update() {
@@ -64,8 +68,10 @@ public class PizzaDropper : MonoBehaviour {
     Vector3 origin = new Vector3(xPos, transform.position.y, zPos);
     Ray ray = new Ray(origin, Vector3.down);
     RaycastHit hit;
-    if (Map.Raycast(ray, out hit, 100f)) {
-      return hit.point.y + 0.5f;
+    foreach (var building in Map) {
+      if (building.Raycast(ray, out hit, 100f)) {
+        return hit.point.y + 0.5f;
+      }
     }
     return 0;
   }
