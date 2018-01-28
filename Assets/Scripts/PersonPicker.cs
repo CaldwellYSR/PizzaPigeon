@@ -10,7 +10,7 @@ public class PersonPicker : MonoBehaviour {
 
 	void Start() {
 		Sprite = GetComponent<SpriteRenderer> ();
-		int selected = Random.Range (0, Peoples.Count);
+		int selected = (int) Mathf.Floor(Random.Range (0, Peoples.Count));
 		Sprite.sprite = Peoples[selected];
 	}
 
