@@ -8,9 +8,9 @@ public class PizzaDropper : MonoBehaviour {
   public GameObject Pizza;
   public Collider Map;
   public bool PizzaReady = true;
+  public ScoreControl ScoreManager;
 
 
-	private GameObject[] Pizzas;
   private float TimeToTarget;
   private float Gravity = Mathf.Abs(Physics.gravity.y);
   private float HeightOffset = 10f;
@@ -21,15 +21,11 @@ public class PizzaDropper : MonoBehaviour {
   void Start() {
     Body = GetComponent<Rigidbody>();
     CrosshairInstance = GameObject.Instantiate(Crosshair);
-		Pizzas = GameObject.FindGameObjectsWithTag ("Pizza");
   }
 
   void Update() {
     if (Input.GetButtonDown("DropBomb") && PizzaReady) {
-			PizzaReady = false;
-			PizzaInstance = Pizzas [0];
-      PizzaInstance.transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
-      PizzaInstance.GetComponent<Rigidbody>().velocity = new Vector3(Body.velocity.x, 0, Body.velocity.z);
+      DropPizza();
     }
   }
 
@@ -37,8 +33,23 @@ public class PizzaDropper : MonoBehaviour {
     CrosshairInstance.transform.position = GetCrosshairPosition();
   }
 
+  private void DropPizza() {
+			PizzaReady = false;
+
+      // Create a pizza
+			PizzaInstance = GameObject.Instantiate(Pizza);
+
+      // Initialize Pizza Controller Properties
+      PizzaController PizzaControl = PizzaInstance.GetComponent<PizzaController>();
+      PizzaControl.PizzaDrop = this;
+      PizzaControl.ScoreManager = ScoreManager;
+
+      // Let dat Pizza drop
+      PizzaInstance.transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
+      PizzaInstance.GetComponent<Rigidbody>().velocity = new Vector3(Body.velocity.x, 0, Body.velocity.z);
+  }
+
 	public void ReadyNextPizza() {
-		Debug.Log ("Ready Dat Pizza Bitch");
 		PizzaReady = true;
 	}
 
