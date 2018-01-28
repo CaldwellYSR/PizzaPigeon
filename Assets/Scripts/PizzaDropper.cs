@@ -7,7 +7,10 @@ public class PizzaDropper : MonoBehaviour {
   public GameObject Crosshair;
   public GameObject Pizza;
   public Collider Map;
+  public bool PizzaReady = true;
 
+
+	private GameObject[] Pizzas;
   private float TimeToTarget;
   private float Gravity = Mathf.Abs(Physics.gravity.y);
   private float HeightOffset = 10f;
@@ -18,11 +21,13 @@ public class PizzaDropper : MonoBehaviour {
   void Start() {
     Body = GetComponent<Rigidbody>();
     CrosshairInstance = GameObject.Instantiate(Crosshair);
+		Pizzas = GameObject.FindGameObjectsWithTag ("Pizza");
   }
 
   void Update() {
-    if (Input.GetButtonDown("DropBomb")) {
-      PizzaInstance = GameObject.Instantiate(Pizza);
+    if (Input.GetButtonDown("DropBomb") && PizzaReady) {
+			PizzaReady = false;
+			PizzaInstance = Pizzas [0];
       PizzaInstance.transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
       PizzaInstance.GetComponent<Rigidbody>().velocity = new Vector3(Body.velocity.x, 0, Body.velocity.z);
     }
@@ -31,6 +36,11 @@ public class PizzaDropper : MonoBehaviour {
   void LateUpdate() {
     CrosshairInstance.transform.position = GetCrosshairPosition();
   }
+
+	public void ReadyNextPizza() {
+		Debug.Log ("Ready Dat Pizza Bitch");
+		PizzaReady = true;
+	}
 
   private Vector3 GetCrosshairPosition() {
     float xPos = transform.position.x + GetXDisplacement();
