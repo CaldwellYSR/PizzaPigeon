@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class FlightControl : MonoBehaviour {
 
-  [Range(4f, 12f)]
+  [Range(4f, 24f)]
   public float Speed;
 
   [Range(0.5f, 2f)]
   public float TurnSpeed;
 
-  [Range(10f, 100f)]
+  [Range(10f, 50f)]
   public float MaxSpeed;
 
   private Rigidbody Body;
@@ -24,6 +24,20 @@ public class FlightControl : MonoBehaviour {
 
     Body.AddTorque(transform.up * Input.GetAxis("Horizontal") * TurnSpeed);
     Body.AddTorque(transform.right * Input.GetAxis("Vertical") * TurnSpeed);
+
+    if (Input.GetButtonDown("Boost")) {
+      Speed *= 2f;
+    }
+    if (Input.GetButtonUp("Boost")) {
+      Speed *= 0.5f;
+    }
+
+    if (Input.GetButtonDown("Brake")) {
+      Speed *= 0.5f;
+    }
+    if (Input.GetButtonUp("Brake")) {
+      Speed *= 2f;
+    }
 
     Body.AddForce(transform.forward * Speed);
 
