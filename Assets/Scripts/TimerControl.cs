@@ -17,7 +17,7 @@ public class TimerControl : MonoBehaviour
 	}
 
   public void GotPizza() {
-    timeLeft += 20;
+    timeLeft += 10;
   }
 
 	// Update is called once per frame
