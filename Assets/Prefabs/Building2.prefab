@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33084757664594832}
   - component: {fileID: 23779531020523980}
   - component: {fileID: 64674112238280988}
+  - component: {fileID: 114858416935764690}
   m_Layer: 0
   m_Name: Building2
   m_TagString: Building
@@ -35,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1310310040603654}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.04, z: 0.053}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -2.316, y: 0.1, z: 1.212}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 180, z: 0}
 --- !u!23 &23779531020523980
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -95,3 +96,18 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 86c4459a487de42dfbe4ea9a89a8efe9, type: 3}
+--- !u!114 &114858416935764690
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1310310040603654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5dc33546bcd048f489601341654ef4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Textures:
+  - {fileID: 2100000, guid: f57bdebe4c9d048b6ae14d778a9a13c3, type: 2}
+  - {fileID: 2100000, guid: 2e44dfd0a2b9e495399e0f6789c6a3bf, type: 2}
+  - {fileID: 2100000, guid: 252239d79e36349cfa78f90eec6404e3, type: 2}
