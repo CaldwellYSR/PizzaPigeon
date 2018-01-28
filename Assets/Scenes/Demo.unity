@@ -229,6 +229,11 @@ Prefab:
       propertyPath: DroppingBombAssPizzas
       value: 
       objectReference: {fileID: 1289049569}
+    - target: {fileID: 114942280289100572, guid: a47b90b12e75345259e6fe26fd6c6be5,
+        type: 2}
+      propertyPath: TimeManager
+      value: 
+      objectReference: {fileID: 858439805}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a47b90b12e75345259e6fe26fd6c6be5, type: 2}
   m_IsPrefabParent: 0
@@ -263,7 +268,7 @@ Transform:
   - {fileID: 1242179729}
   - {fileID: 1046989364}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &631495916
 Prefab:
@@ -450,7 +455,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4479681104689876, guid: 0dc097cc8f5b7459aa90a61611ca04e6, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114969575799074332, guid: 0dc097cc8f5b7459aa90a61611ca04e6,
         type: 2}
@@ -471,6 +476,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 858439803}
   m_Script: {fileID: 11500000, guid: 00d12354e58a240409c2688ac0767724, type: 3}
+--- !u!114 &858439805 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114969575799074332, guid: 0dc097cc8f5b7459aa90a61611ca04e6,
+    type: 2}
+  m_PrefabInternal: {fileID: 858439803}
+  m_Script: {fileID: 11500000, guid: aa4b56fbd569341d889f0ecef28cdfb4, type: 3}
 --- !u!1001 &951704935
 Prefab:
   m_ObjectHideFlags: 0

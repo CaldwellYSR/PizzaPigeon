@@ -16,6 +16,10 @@ public class TimerControl : MonoBehaviour
 		StartCoroutine("LoseTime");
 	}
 
+  public void GotPizza() {
+    timeLeft += 20;
+  }
+
 	// Update is called once per frame
 	void Update()
 	{

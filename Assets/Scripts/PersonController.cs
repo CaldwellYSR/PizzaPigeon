@@ -6,6 +6,7 @@ public class PersonController : MonoBehaviour {
 
   public ScoreControl ScoreManager;
   public PizzaDropper DroppingBombAssPizzas;
+  public TimerControl TimeManager;
 
   private List<GameObject> AvailablePersons;
   private List<GameObject> SelectedPersonsList = new List<GameObject>();
@@ -24,6 +25,7 @@ public class PersonController : MonoBehaviour {
       Destroy(other.gameObject);
       ScoreManager.IncrementScore();
       DroppingBombAssPizzas.ReadyNextPizza();
+      TimeManager.GotPizza();
       SelectNewPerson();
     }
   }
